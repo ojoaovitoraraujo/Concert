@@ -21,7 +21,7 @@ export class FormComponent implements OnInit {
       name: new FormControl(client.name),
       type: new FormControl(client.type),
       gender: new FormControl(client.gender),
-      bornDate: new FormControl(client.bornDate),
+      birthDate: new FormControl(client.birthDate),
       note: new FormControl(client.note),
       inactive: new FormControl(client.inactive),
     });
