@@ -1,10 +1,14 @@
 <form [formGroup]="formClient" (ngSubmit)="onSubmit()">
 
+
+   <!-- <=== === === === === Name === === === === ===> -->
   <div class="form-group">
     <label for="name">Nome</label>
     <input type="text" class="form-control" name="name" id="name" formControlName="name" required>
   </div>
 
+
+   <!-- <=== === === === === Type === === === === ===> -->
   <div class="form-group">
     <label for="type">Tipo</label>
     <select class="form-control" name="type" id="type" formControlName="type">
@@ -14,8 +18,8 @@
   </div>
 
   <div class="form-group">
+   <!-- <=== === === === === Gender === === === === ===> -->
     <label>Gênero</label>
-
     <div class="form-check">
       <input class="form-check-input" type="radio" name="gender" id="masculino" [value]="1" formControlName="gender">
       <label class="form-check-label" for="masculino">Masculino</label>
@@ -26,22 +30,30 @@
     </div>
   </div>
 
+
+   <!-- <=== === === === === Birth Date === === === === ===> -->
   <div class="form-group">
-    <label for="bornDate">Data de nascimento</label>
-    <input type="date" class="form-control" name="bornDate" id="bornDate" formControlName="bornDate">
+    <label for="birthDate">Data de nascimento</label>
+    <input type="date" class="form-control" name="birthDate" id="birthDate" formControlName="birthDate">
   </div>
 
+
+   <!-- <=== === === === === Note === === === === ===> -->
   <div class="form-group">
     <label for="note">Observação</label>
     <textarea class="form-control" rows="3" name="note" id="note" formControlName="note"></textarea>
   </div>
 
+
+   <!-- <=== === === === === Inactive === === === === ===> -->
   <div class="form-check">
     <input class="form-check-input" type="checkbox" name="inactive" id="inactive" formControlName="inactive">
     <label class="form-check-label" for="inactive">Inativo</label>
   </div>
 
-  <input type="submit" class="btn btn-primary mt-4" value="Cadastrar">
+  <!-- <=== === === === === Buttons === === === === ===> -->
+  <input type="submit" class="btn btn-primary mt-4" value="Salvar">
+
   <a href="#" class="btn btn-secondary mt-4 ml-2">Cancelar</a>
 
 </form>
