@@ -1,0 +1,64 @@
+<section class="mt-5">
+  <div class="card card-form p-4">
+    <form action="" class="float-right" (ngSubmit)="transact()">
+      <h2>Nova transferência</h2>
+
+      <div>
+        <label class="form-label font-weight-bold" for="value" >Valor</label>
+        <input class="form-control" type="number" id="value" name="value" [(ngModel)]="value">
+      </div>
+
+      <div>
+        <label class="form-label font-weight-bold" for="destination">Destino</label>
+        <input class="form-control" type="number" id="destination" name="destination" [(ngModel)]="destination">
+      </div>
+
+      <label class="form-label font-weight-bold mt-2" for="categories">Categoria</label>
+      <div class="input-group form-label">
+        <select class="custom-select" name="categories" [(ngModel)]="categories">
+          <option selected>Escolher...</option>
+          <option value="1">Cartão de crédito</option>
+          <option value="2">Alimento</option>
+          <option value="3">Lazer</option>
+        </select>
+      </div>
+
+      <div class="form-group mt-2">
+        <label class="form-label font-weight-bold mt-2" for="date">Data</label>
+        <div class="input-group">
+          <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model" ngbDatepicker
+            [footerTemplate]="footerTemplate" #d="ngbDatepicker" [minDate]="today" readonly>
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary calendar" (click)="d.toggle()"></button>
+          </div>
+          <ng-template #footerTemplate>
+            <hr class="my-0">
+            <button class="btn btn-primary btn-sm m-2 float-left" (click)="model = today; d.close()">Today</button>
+            <button class="btn btn-secondary btn-sm m-2 float-right" (click)="d.close()">Close</button>
+          </ng-template>
+        </div>
+      </div>
+
+      <!-- <label class="form-label font-weight-bold mt-2" for="paidOut">Ja foi pago ?</label> <br>
+      <mat-checkbox-group [(ngModel)]="paidOut">
+        <mat-checkbox class="pr-2 ml-3" *ngIf="true"> Sim</mat-checkbox>
+        <mat-checkbox class="pr-2" > Não</mat-checkbox>
+        <mat-checkbox class="pr-2"> Parcialmente</mat-checkbox>
+      </mat-checkbox-group><br> -->
+
+
+      <label class="form-label font-weight-bold mt-2" for="spending">O gasto foi com:</label><br>
+      <mat-radio-group [(ngModel)]="PickSpending" name="spending">
+        <mat-radio-button class="ml-3" *ngFor="let spending of spendings" [value]="spending">
+          {{spending}}
+        </mat-radio-button>
+      </mat-radio-group><br>
+
+
+      <div class="container text-center">
+        <button class=" btn btn-primary mt-4" style="width: 300px; height: 50px" type="submit">Transferir</button>
+
+      </div>
+    </form>
+  </div>
+</section>
