@@ -1,4 +1,4 @@
-export class Client {
+export class ReativeClient {
   name: string = '';
   type: number = 1;
   gender: number = 1;
