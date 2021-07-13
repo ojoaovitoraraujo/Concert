@@ -7,42 +7,42 @@
   <div class=" list-group list-group-flush ">
     <div class="list-group-item ml-3 text-dark ">
       <p class="pt-3">
-        <a class="text-dark h5" href="#">
-          <span class="fas fa-home pr-2"></span>Home
+        <a class="text-dark h5" [routerLink]="['/form']">
+          <span class="fas fa-list pr-2"></span>Form
         </a>
       </p>
     </div>
 
     <div class="list-group-item ml-3 text-dark">
       <p class="pt-3">
-        <a class="text-dark h5" data-toggle="collapse" href="#adminCollapse"
-          >
-          <span class="fas fa-user-shield pr-2"></span>Extrato
+        <a class="text-dark h5" data-toggle="collapse" [routerLink]="['/dataform']">
+          <span class="fas fa-user-shield pr-2"></span>DataForm
         </a>
       </p>
     </div>
 
     <div class="list-group-item ml-3 text-dark">
       <p class="pt-3">
-        <a class="text-dark h5" data-toggle="collapse" href="#projetcsCollapse" >
-          <span class="fas fa-copy pr-2"></span>Nova trasnferência
+        <a class="text-dark h5" data-toggle="collapse" [routerLink]="['/formreactive']">
+          <span class="fas fa-atom pr-2"></span>ReactiveForm
         </a>
     </div>
 
     <div class="list-group-item ml-3 text-dark">
       <p class="pt-3">
-        <a class="text-dark h5" data-toggle="collapse" href="#questionnaireCollapse">
-          <span class="fas fa-question pr-2"></span>Dúvidas
+        <a class="text-dark h5" data-toggle="collapse" [routerLink]="['/datareactiveform']">
+          <span class="fas fa-question pr-2"></span>DataReactiveForm
         </a>
       </p>
     </div>
-
+    <!--
     <div class="list-group-item ml-3 text-danger">
       <p class="pt-3">
         <a class="text-danger h5" data-toggle="collapse" href="#questionsCollapse">
           <span class="fas fa-sign-out-alt pr-2"></span>Sair
         </a>
       </p>
-  </div>
+    </div> -->
 
+  </div>
 </div>

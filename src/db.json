@@ -1,0 +1,32 @@
+
+{
+  "Clients": [
+    {
+      "id": "1",
+      "name": "João Vitor",
+      "type": "2",
+      "gender": 2,
+      "bithDate": "2001-07-06",
+      "note": "uma observação",
+      "incative": false
+    },
+    {
+      "id": "1",
+      "name": "João ",
+      "type": "1",
+      "gender": 1,
+      "bithDate": "2001-07-06",
+      "note": "mais uma observação",
+      "incative": true
+    },
+    {
+      "id": "1",
+      "name": "Marcos",
+      "type": "2",
+      "gender": 2,
+      "bithDate": "2001-07-06",
+      "note": "outra observação",
+      "incative": false
+    }
+  ]
+}

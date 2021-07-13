@@ -5,6 +5,7 @@
   -moz-transition: margin 0.25s ease-out;
   -o-transition: margin 0.25s ease-out;
   transition: margin 0.25s ease-out;
+  position: relative;
 }
 
 #sidebar-wrapper .sidebar-heading {
@@ -38,3 +39,9 @@
     margin-left: -15rem;
   }
 }
+
+.subitem{
+  text-decoration: none;
+}
+
+

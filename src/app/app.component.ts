@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { AuthService } from './login/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +9,19 @@ import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'bytebank';
-
+  title = 'Concert';
+  showSidebar: boolean = false;
   transactions: any[] = [];
+
+  constructor(private authService: AuthService){
+
+  }
+
+  ngOnInit(){
+    this.authService.showSidebarEmitter.subscribe(
+      show => this.showSidebar = show
+    );
+  }
 
   transact($event){
     console.log($event);

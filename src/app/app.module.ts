@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 // import { NewTransactionComponent } from './new-transaction/new-transaction.component';
 // import { StatementComponent } from './statement/statement.component';
-// import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './login/form/login.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -14,16 +14,21 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { FormComponent } from './clients/form/form.component';
 import { FormReactiveComponent } from './reactiveCliets/form/reactiveForm.component';
+import { AuthService } from './login/auth.service';
+import { DataFormComponent } from './data-form/data-form.component';
+import { DataReactiveFormsComponent } from './data-reactive-forms/data-reactive-forms.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     // NewTransactionComponent,
     // StatementComponent,
-    // LoginComponent,
+    LoginComponent,
     SidebarComponent,
     FormComponent,
-    FormReactiveComponent
+    FormReactiveComponent,
+    DataFormComponent,
+    DataReactiveFormsComponent,
 
   ],
   imports: [
@@ -35,7 +40,9 @@ import { FormReactiveComponent } from './reactiveCliets/form/reactiveForm.compon
     MatRadioModule,
     MatCheckboxModule,
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
