@@ -18,7 +18,13 @@
     </div>
   </div> -->
 
-  <router-outlet></router-outlet>
+  <div class="row">
+    <app-sidebar *ngIf="router.url != '/login'"></app-sidebar>
+    <div *ngIf="showLoadingIndicator" class="spinner"></div>
+    <div class="container col-3" *ngIf="router.url === '/login'"></div>
+    <router-outlet class="align-center"></router-outlet>
+    <div class="container col-3" *ngIf="router.url === '/login'"></div>
+  </div>
 
 <!-- <div class="row"> -->
   <!-- <app-sidebar *ngIf="showSidebar" class="col-2"></app-sidebar> -->

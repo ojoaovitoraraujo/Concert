@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-data-reactive-forms',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./data-reactive-forms.component.scss']
 })
 export class DataReactiveFormsComponent implements OnInit {
+
+  @Input() teste: any;
 
   constructor() { }
 

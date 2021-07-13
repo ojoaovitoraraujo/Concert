@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
+import { Event, Router, NavigationStart, NavigationEnd } from '@angular/router';
 import { FormGroup } from '@angular/forms';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
-import { AuthService } from './login/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -13,19 +13,21 @@ export class AppComponent {
   showSidebar: boolean = false;
   transactions: any[] = [];
 
-  constructor(private authService: AuthService){
+  showLoadingIndicator = true
+
+  constructor(public router: Router){
+    router.events.subscribe((routerEvent: Event) => {
+      if(routerEvent instanceof NavigationStart){
+        this.showLoadingIndicator = true;
+      }
+
+      if(routerEvent instanceof NavigationEnd){
+        setTimeout(() => {this.showLoadingIndicator = false;}, 2000)
+      }
+    });
 
   }
 
   ngOnInit(){
-    this.authService.showSidebarEmitter.subscribe(
-      show => this.showSidebar = show
-    );
-  }
-
-  transact($event){
-    console.log($event);
-    const transact = {...$event, data: new Date()};
-    this.transactions.push(transact);
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup} from '@angular/forms';
 import { ReativeClient } from '../shares/reactiveClient';
 
@@ -9,6 +9,9 @@ import { ReativeClient } from '../shares/reactiveClient';
 })
 export class FormReactiveComponent implements OnInit {
   formReactiveClient: FormGroup;
+  private url = 'http://localhost:3000/Clients'
+
+  @Output() onSubmitReactiveForm = new EventEmitter<any>();
 
   constructor(private formBuilder: FormBuilder) { }
 
@@ -29,8 +32,10 @@ export class FormReactiveComponent implements OnInit {
 
   onSubmit(){
     console.log(this.formReactiveClient.value);
-
     this.formReactiveClient.reset(new ReativeClient());
+    this.onSubmitReactiveForm.emit(this.formReactiveClient.value);
   }
+
+
 
 }

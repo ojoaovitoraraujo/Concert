@@ -28,7 +28,8 @@ export class FormComponent implements OnInit {
   };
 
   onSubmit(){
-    console.log(this.formClient.controls.name.value);
+    console.log(this.formClient.value);
+    this.formClient.reset(new Client());
   }
 
 }
