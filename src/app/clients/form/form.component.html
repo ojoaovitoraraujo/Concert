@@ -47,4 +47,35 @@
     <a href="#" class="btn btn-secondary mt-4 ml-2">Cancelar</a>
 
   </form>
+
+
+  <p class="text-center title h3 mt-5">Dados API Rest Form Padrão</p>
+  <table class="table table-container mt-2">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Gênero</th>
+        <th scope="col">Data de Nascimento</th>
+        <th scope="col">Observação</th>
+        <th scope="col">Inativo</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Excluir</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let client of clients">
+        <td>{{ client.id }}</td>
+        <td>{{ client.name }}</td>
+        <td>{{ client.type }}</td>
+        <td>{{ client.gender }}</td>
+        <td>{{ client.birthDate }}</td>
+        <td>{{ client.note }}</td>
+        <td>{{ client.inactive }}</td>
+        <td><button class="btn pt-0 fas fa-edit" (click)="edit(client.id)"></button></td>
+        <td><button class="btn pt-0 fas fa-trash" (click)="delete(client.id)"></button></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
