@@ -6,5 +6,6 @@ export class Client {
   birthDate: Date;
   note: string;
   inactive: boolean;
+
 }
 
