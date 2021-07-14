@@ -1,6 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup} from '@angular/forms';
-import { ReativeClient } from '../shares/reactiveClient';
+import { ReactiveClient } from '../shares/reactiveClient';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-reactiveForm',
@@ -9,17 +11,23 @@ import { ReativeClient } from '../shares/reactiveClient';
 })
 export class FormReactiveComponent implements OnInit {
   formReactiveClient: FormGroup;
-  private url = 'http://localhost:3000/Clients'
+  reactiveClients: any[] = [];
+  private url = 'http://localhost:3000/ReactiveClients'
 
   @Output() onSubmitReactiveForm = new EventEmitter<any>();
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.createForm(new ReativeClient());
+    this.createForm(new ReactiveClient());
+
+    this.allReactiveClients().subscribe((reactiveClients: ReactiveClient[]) => {
+      console.table(reactiveClients);
+      this.reactiveClients = reactiveClients;
+    })
   }
 
-  createForm(reactiveClient: ReativeClient){
+  createForm(reactiveClient: ReactiveClient){
     this.formReactiveClient = this.formBuilder.group({
       name: [reactiveClient.name],
       type: [reactiveClient.type],
@@ -30,12 +38,28 @@ export class FormReactiveComponent implements OnInit {
     });
   };
 
-  onSubmit(){
-    console.log(this.formReactiveClient.value);
-    this.formReactiveClient.reset(new ReativeClient());
-    this.onSubmitReactiveForm.emit(this.formReactiveClient.value);
+  allReactiveClients(): Observable<ReactiveClient[]>{
+    return this.http.get<ReactiveClient[]>(this.url);
   }
 
+  onSubmit(){
+    console.log(this.formReactiveClient.controls.name.value);
+    console.log(JSON.stringify(this.formReactiveClient.value))
 
+    this.http.post(this.url, this.formReactiveClient.value).subscribe((response) =>{
+      console.log('response', response)
+    })
 
+    this.formReactiveClient.reset(new ReactiveClient());
+  }
+
+  edit(id){
+
+  }
+
+  delete(id){
+    this.http.delete(this.url + '/' + id).subscribe(data => {
+      console.log(data);
+    });
+  }
 }

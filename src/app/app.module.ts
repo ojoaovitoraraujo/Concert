@@ -1,7 +1,7 @@
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/form/login.component';
@@ -34,8 +34,11 @@ import { DataReactiveFormsComponent } from './data-reactive-forms/data-reactive-
     NgbModule,
     MatRadioModule,
     MatCheckboxModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    HttpClient,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

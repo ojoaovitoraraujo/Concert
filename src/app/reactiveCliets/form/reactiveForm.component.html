@@ -48,4 +48,37 @@
     <a href="#" class="btn btn-secondary mt-4 ml-2">Cancelar</a>
 
   </form>
+
+
+  <p class="text-center title h3 mt-5">Dados API Rest Form Reativo</p>
+  <table class="table table-container mt-2">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Gênero</th>
+        <th scope="col">Data de Nascimento</th>
+        <th scope="col">Observação</th>
+        <th scope="col">Inativo</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Excluir</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let reactiveClient of reactiveClients">
+        <td>{{ reactiveClient.id }}</td>
+        <td>{{ reactiveClient.name }}</td>
+        <td>{{ reactiveClient.type }}</td>
+        <td>{{ reactiveClient.gender }}</td>
+        <td>{{ reactiveClient.birthDate }}</td>
+        <td>{{ reactiveClient.note }}</td>
+        <td>{{ reactiveClient.inactive }}</td>
+        <td><button class="btn pt-0 fas fa-edit" click="edit(reactiveClient.id)"></button></td>
+        <td><button class="btn pt-0 fas fa-trash" (click)="delete(reactiveClient.id)"></button></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
+
+
