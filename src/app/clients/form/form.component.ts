@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Client } from '../shared/client';
 import {FormGroup, FormControl} from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-form',
@@ -10,11 +11,19 @@ import { HttpClient } from '@angular/common/http';
 })
 export class FormComponent implements OnInit {
   formClient: FormGroup;
+  clients: any[] = [];
+  private showError: boolean = false;
+  private url = 'http://localhost:3000/Clients'
 
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
     this.createForm(new Client());
+
+    this.allClients().subscribe((clients: Client[]) => {
+      console.table(clients);
+      this.clients = clients;
+    })
   }
 
   createForm(client: Client){
@@ -28,14 +37,31 @@ export class FormComponent implements OnInit {
     });
   };
 
+  allClients(): Observable<Client[]>{
+    return this.http.get<Client[]>(this.url);
+  }
+
   onSubmit(){
     console.log(this.formClient.value);
 
-    this.http.post('http://localhost:3000/Clients', this.formClient.value).subscribe((response) =>{
-      console.log('response', response)
-    })
-
+    this.http.post('http://localhost:3000/Clients', this.formClient.value).subscribe(
+      () => { alert('Cliente cadastrado')},
+      (err) => {alert('error')}
+    )
     this.formClient.reset(new Client());
+
+  }
+
+  edit(id){
+
+  }
+
+  delete(id){
+    this.http.delete(this.url + '/' + id).subscribe(
+      () => { alert('Cliente excluído')},
+      (err) => {alert('error')}
+    );
+
   }
 
 }

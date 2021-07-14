@@ -5,7 +5,8 @@
 
     <div class="form-group">
       <label for="name">Nome</label>
-      <input type="text" class="form-control" name="name" id="name" formControlName="name" required>
+      <input type="text" class="form-control" name="name" id="name" fullNameControl="name" formControlName="name" required>
+      <!-- <div *ngIf="name.touched && name.hasError('required')">Required</div> -->
     </div>
 
     <div class="form-group">

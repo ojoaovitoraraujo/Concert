@@ -1,50 +1,12 @@
 {
   "Clients": [
     {
-      "name": "João Vitor Oliveira Araujo",
-      "type": "2",
-      "gender": 2,
-      "birthDate": "2001-07-06",
-      "note": "asd",
-      "inactive": true,
-      "id": 1
-    },
-    {
-      "name": "João Vitor ",
-      "type": "2",
-      "gender": 1,
-      "birthDate": "2001-07-06",
-      "note": "qwweqdasd",
-      "inactive": true,
-      "id": 2
-    },
-    {
-      "name": "João Vitor Oliveira Araujo",
-      "type": "1",
-      "gender": 1,
-      "birthDate": "2003-04-05",
-      "note": "Observação",
-      "inactive": null,
-      "id": 3
-    },
-    {
-      "name": "João Vitor Oliveira Araujo",
+      "name": "Joao Vitor",
       "type": "1",
       "gender": 1,
       "birthDate": "2001-07-06",
-      "note": "asdasd",
+      "note": "Uma observação",
       "inactive": null,
-      "id": 4
-    }
-  ],
-  "ReactiveClients": [
-    {
-      "name": "João Vitor Oliveira Araujo",
-      "type": "2",
-      "gender": 2,
-      "birthDate": "2001-07-06",
-      "note": "asd",
-      "inactive": true,
       "id": 1
     },
     {
@@ -52,27 +14,29 @@
       "type": "2",
       "gender": 2,
       "birthDate": "1997-07-01",
-      "note": "Outra obs",
+      "note": "Outra Observação",
       "inactive": true,
-      "id": 3
-    },
+      "id": 2
+    }
+  ],
+  "ReactiveClients": [
     {
-      "name": "João Vitor Oliveira Araujo",
+      "name": "Jaqueline Oliveira",
       "type": "2",
       "gender": 2,
-      "birthDate": "2001-07-06",
-      "note": "asd",
-      "inactive": true,
-      "id": 4
+      "birthDate": "1968-12-28",
+      "note": "Uma observação",
+      "inactive": false,
+      "id": 8
     },
     {
-      "name": "teste",
+      "name": "Gilson Luciano de Araujo",
       "type": 1,
-      "gender": 2,
-      "birthDate": "2001-07-06",
-      "note": "adasd",
-      "inactive": false,
-      "id": 5
+      "gender": 1,
+      "birthDate": "1969-11-21",
+      "note": "Outra observação",
+      "inactive": true,
+      "id": 9
     }
   ]
 }

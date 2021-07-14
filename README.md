@@ -1,10 +1,19 @@
-# Bytebank
+# ConcertTest - Bb
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.15.
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+## Fke API REST
+
+Run `json-server --watch db.json` for a API server. Navigate to `http://localhost:3000/`. 
+
+`http://localhost:3000/Clients`
+
+`http://localhost:3000/ReactiveClients`
+
 
 ## Code scaffolding
 
