@@ -7,18 +7,16 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 
-  <!-- <app-login></app-login> -->
-  <!-- <div class="container-fluid">
-    <div class="row  justify-content-between">
-      <app-sidebar></app-sidebar>
-      <app-new-transaction></app-new-transaction>
-      <app-statement [transactionList]="transact"></app-statement>
-      <div></div>
-    </div>
-  </div> -->
+  <div class="row">
+    <app-sidebar *ngIf="router.url != '/login'"></app-sidebar>
+    <div *ngIf="showLoadingIndicator" class="spinner"></div>
+    <div class="container col-3" *ngIf="router.url === '/login'"></div>
+    <router-outlet class="align-center"></router-outlet>
+    <div class="container col-3" *ngIf="router.url === '/login'"></div>
+  </div>
 
-<div class="container mt-5 mb-5">
-  <app-form></app-form>
-</div>
+
+
+
 
 

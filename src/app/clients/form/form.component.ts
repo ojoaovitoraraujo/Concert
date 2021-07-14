@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Client } from '../shared/client';
 import {FormGroup, FormControl} from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-form',
@@ -10,7 +11,7 @@ import {FormGroup, FormControl} from '@angular/forms';
 export class FormComponent implements OnInit {
   formClient: FormGroup;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
     this.createForm(new Client());
@@ -29,6 +30,12 @@ export class FormComponent implements OnInit {
 
   onSubmit(){
     console.log(this.formClient.value);
+
+    this.http.post('http://localhost:3000/Clients', this.formClient.value).subscribe((response) =>{
+      console.log('response', response)
+    })
+
+    this.formClient.reset(new Client());
   }
 
 }

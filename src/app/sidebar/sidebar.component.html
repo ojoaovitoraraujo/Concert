@@ -1,4 +1,4 @@
-<div class="pt-4 border-right" id="sidebar-wrapper">
+<div class="pt-4 pl-4 border-right" id="sidebar-wrapper">
   <div class="sidebar-heading navbar-brand">
     <img src="http://concert.com.br/wp-content/uploads/2017/06/cropped-logo-2-1.png" class="d-inline-block align-top"
       alt="">
@@ -6,43 +6,25 @@
 
   <div class=" list-group list-group-flush ">
     <div class="list-group-item ml-3 text-dark ">
-      <p class="pt-3">
-        <a class="text-dark h5" href="#">
-          <span class="fas fa-home pr-2"></span>Home
+      <p>
+        <a class="text-dark h5" [routerLink]="['/form']">
+          <span class="fas fa-list pr-2"></span>Form
         </a>
       </p>
     </div>
+
+
+
 
     <div class="list-group-item ml-3 text-dark">
-      <p class="pt-3">
-        <a class="text-dark h5" data-toggle="collapse" href="#adminCollapse"
-          >
-          <span class="fas fa-user-shield pr-2"></span>Extrato
+      <p>
+        <a class="text-dark h5" [routerLink]="['/formreactive']">
+          <span class="fas fa-atom pr-2"></span>ReactiveForm
         </a>
       </p>
     </div>
 
-    <div class="list-group-item ml-3 text-dark">
-      <p class="pt-3">
-        <a class="text-dark h5" data-toggle="collapse" href="#projetcsCollapse" >
-          <span class="fas fa-copy pr-2"></span>Nova trasnferência
-        </a>
-    </div>
 
-    <div class="list-group-item ml-3 text-dark">
-      <p class="pt-3">
-        <a class="text-dark h5" data-toggle="collapse" href="#questionnaireCollapse">
-          <span class="fas fa-question pr-2"></span>Dúvidas
-        </a>
-      </p>
-    </div>
 
-    <div class="list-group-item ml-3 text-danger">
-      <p class="pt-3">
-        <a class="text-danger h5" data-toggle="collapse" href="#questionsCollapse">
-          <span class="fas fa-sign-out-alt pr-2"></span>Sair
-        </a>
-      </p>
   </div>
-
 </div>

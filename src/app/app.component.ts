@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Event, Router, NavigationStart, NavigationEnd } from '@angular/router';
 import { FormGroup } from '@angular/forms';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 
@@ -8,13 +9,25 @@ import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'bytebank';
-
+  title = 'Concert';
+  showSidebar: boolean = false;
   transactions: any[] = [];
 
-  transact($event){
-    console.log($event);
-    const transact = {...$event, data: new Date()};
-    this.transactions.push(transact);
+  showLoadingIndicator = true
+
+  constructor(public router: Router){
+    router.events.subscribe((routerEvent: Event) => {
+      if(routerEvent instanceof NavigationStart){
+        this.showLoadingIndicator = true;
+      }
+
+      if(routerEvent instanceof NavigationEnd){
+        setTimeout(() => {this.showLoadingIndicator = false;}, 2000)
+      }
+    });
+
+  }
+
+  ngOnInit(){
   }
 }
