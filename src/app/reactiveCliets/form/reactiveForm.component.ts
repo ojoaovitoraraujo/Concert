@@ -44,7 +44,6 @@ export class FormReactiveComponent implements OnInit {
 
   onSubmit(){
     console.log(this.formReactiveClient.controls.name.value);
-    console.log(JSON.stringify(this.formReactiveClient.value))
 
     this.http.post(this.url, this.formReactiveClient.value).subscribe((response) =>{
       console.log('response', response)
@@ -58,8 +57,11 @@ export class FormReactiveComponent implements OnInit {
   }
 
   delete(id){
-    this.http.delete(this.url + '/' + id).subscribe(data => {
-      console.log(data);
-    });
+    this.http.delete(this.url + '/' + id).subscribe(
+      () => { alert('Cliente excluído')},
+      (err) => {alert('error')}
+    );
   }
 }
+
+
