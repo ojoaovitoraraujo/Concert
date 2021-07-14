@@ -1,6 +1,8 @@
 <div class="container form-container">
-  <p class="text-center title h3 pb-3">Formulário padrão</p>
-  <form [formGroup]="formClient" (ngSubmit)="onSubmit()">
+  <p class="text-center title h3 pb-3">Formulário Reativo</p>
+
+  <form [formGroup]="formReactiveClient" (ngSubmit)="onSubmit()">
+
     <div class="form-group">
       <label for="name">Nome</label>
       <input type="text" class="form-control" name="name" id="name" formControlName="name" required>
@@ -12,7 +14,6 @@
         <option value="1">Pessoa física</option>
         <option value="2">Pessoa jurídica</option>
       </select>
-
     </div>
 
     <div class="form-group">
@@ -27,7 +28,7 @@
         <label class="form-check-label" for="feminino">Feminino</label>
       </div>
     </div>
-    
+
     <div class="form-group">
       <label for="birthDate">Data de nascimento</label>
       <input type="date" class="form-control" name="birthDate" id="birthDate" formControlName="birthDate">
@@ -47,4 +48,37 @@
     <a href="#" class="btn btn-secondary mt-4 ml-2">Cancelar</a>
 
   </form>
+
+
+  <p class="text-center title h3 mt-5">Dados API Rest Form Reativo</p>
+  <table class="table table-container mt-2">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Gênero</th>
+        <th scope="col">Data de Nascimento</th>
+        <th scope="col">Observação</th>
+        <th scope="col">Inativo</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Excluir</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let reactiveClient of reactiveClients">
+        <td>{{ reactiveClient.id }}</td>
+        <td>{{ reactiveClient.name }}</td>
+        <td>{{ reactiveClient.type }}</td>
+        <td>{{ reactiveClient.gender }}</td>
+        <td>{{ reactiveClient.birthDate }}</td>
+        <td>{{ reactiveClient.note }}</td>
+        <td>{{ reactiveClient.inactive }}</td>
+        <td><button class="btn pt-0 fas fa-edit" click="edit(reactiveClient.id)"></button></td>
+        <td><button class="btn pt-0 fas fa-trash" (click)="delete(reactiveClient.id)"></button></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
+
+
